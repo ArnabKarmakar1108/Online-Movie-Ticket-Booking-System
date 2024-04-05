@@ -30,7 +30,7 @@ public class TheaterServiceImpl implements TheaterServiceInt {
 		log.info("TheatreServiceImpl  add method start");
 		TheaterEntity existEntity = dao.findByName(bean.getName());
 		if (existEntity != null) {
-			throw new DuplicateRecordException("Theatre is already Exist");
+			throw new DuplicateRecordException("Theatre Already Exists");
 		}
 		long pk = dao.add(bean);
 		log.info("TheatreServiceImpl add method end");
@@ -43,7 +43,7 @@ public class TheaterServiceImpl implements TheaterServiceInt {
 		log.info("TheatreServiceImpl  update method start");
 		TheaterEntity existEntity = dao.findByName(bean.getName());
 		if (existEntity != null && existEntity.getId() != bean.getId()) {
-			throw new DuplicateRecordException("Theatre is already Exist");
+			throw new DuplicateRecordException("Theatre Already Exists");
 		}
 		dao.update(bean);
 		log.info("TheatreServiceImpl update method end");

@@ -44,7 +44,7 @@ public class InvoiceServiceImpl implements InvoiceServiceInt {
 	@Override
 	@Transactional
 	public void delete(InvoiceEntity bean) {
-		log.info("InvoiceServiceImpl  delete method start");
+		log.info("InvoiceServiceImpl delete method start");
 		dao.delete(bean);
 		log.info("InvoiceServiceImpl delete method end");
 	}
@@ -52,7 +52,7 @@ public class InvoiceServiceImpl implements InvoiceServiceInt {
 	@Override
 	@Transactional
 	public InvoiceEntity findByName(String name) {
-		log.info("InvoiceServiceImpl  findByLogin method start");
+		log.info("InvoiceServiceImpl findByLogin method start");
 		InvoiceEntity bean = dao.findByName(name);
 		log.info("InvoiceServiceImpl findByLogin method end");
 		return bean;
@@ -61,7 +61,7 @@ public class InvoiceServiceImpl implements InvoiceServiceInt {
 	@Override
 	@Transactional
 	public InvoiceEntity findByPk(long id) {
-		log.info("InvoiceServiceImpl  findByPk method start");
+		log.info("InvoiceServiceImpl findByPk method start");
 		InvoiceEntity bean = dao.findByPk(id);
 		log.info("InvoiceServiceImpl findBypk method end");
 		return bean;
@@ -70,7 +70,7 @@ public class InvoiceServiceImpl implements InvoiceServiceInt {
 	@Override
 	@Transactional
 	public List<InvoiceEntity> search(InvoiceEntity bean, long pageNo, int pageSize) {
-		log.info("InvoiceServiceImpl  search method start");
+		log.info("InvoiceServiceImpl search method start");
 		List<InvoiceEntity> list = dao.search(bean, pageNo, pageSize);
 		log.info("InvoiceServiceImpl search method end");
 		return list;
@@ -79,7 +79,7 @@ public class InvoiceServiceImpl implements InvoiceServiceInt {
 	@Override
 	@Transactional
 	public List<InvoiceEntity> search(InvoiceEntity bean) {
-		log.info("InvoiceServiceImpl  search method start");
+		log.info("InvoiceServiceImpl search method start");
 		List<InvoiceEntity> list = dao.search(bean);
 		log.info("InvoiceServiceImpl search method end");
 		return list;

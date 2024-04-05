@@ -6,9 +6,10 @@
 	<div class="home-content-wrapper">
 		<div class="overlay-box">
 			<div class="container fancy-text">
-				<div class="t3xts t3xt-1">Online</div>
-				<div class="t3xts t3xt-2">Ticket Booking</div>
-				<div class="t3xts t3xt-3">System</div>
+				<!-- <div class="t3xts t3xt-1">Filmify:</div> -->
+				<div class="t3xts t3xt-1">Filmify:</div>
+				<div class="t3xts t3xt-2">Online Movie</div>
+				<div class="t3xts t3xt-3">Ticket Booking</div>
 				<!-- <div class="welcome-text text-center fancy-text">Online Ticket Booking System</div>	 -->
 			</div>
 		</div>	
@@ -121,7 +122,7 @@
 		let phraseIndex = 1;
 		let wordIndex = 0;
 		let t3xts = [
-		["Online", "Ticket Booking", "System"],
+		["Filmify:", "Online Movie", "Ticket Booking"],
 		];
 
 

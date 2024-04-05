@@ -48,7 +48,7 @@ public class LoginCtl extends BaseCtl {
 		
 		if (session.getAttribute("user") != null) {
 			session.invalidate();
-			model.addAttribute("success", "You have logout Successfully!!!");
+			model.addAttribute("success", "You have logged out Successfully!!!");
 		}
 		return "login";
 	}

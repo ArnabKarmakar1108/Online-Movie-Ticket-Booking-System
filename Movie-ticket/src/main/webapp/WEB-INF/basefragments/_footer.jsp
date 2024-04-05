@@ -2,7 +2,7 @@
 <footer style="background: black;" class="page-footer font-small blue">
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">&copy; 2024 Copyright:
-    <a href="/Movie-Ticket/home">Online Movie Ticket Booking</a>
+    <a href="/Movie-Ticket/home">Filmify:Online Movie Ticket Booking</a>
   </div>
   <!-- Copyright -->
 </footer>

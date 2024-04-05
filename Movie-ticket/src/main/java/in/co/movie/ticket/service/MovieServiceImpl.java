@@ -29,7 +29,7 @@ public class MovieServiceImpl implements MovieServiceInt {
 		log.info("MovieServiceImpl  add method start");
 		MovieEntity existEntity = dao.findByName(bean.getName());
 		if (existEntity != null) {
-			throw new DuplicateRecordException("Movie is already Exist");
+			throw new DuplicateRecordException("Movie Already Exists");
 		}
 		long pk = dao.add(bean);
 		log.info("MovieServiceImpl add method end");
@@ -39,10 +39,10 @@ public class MovieServiceImpl implements MovieServiceInt {
 	@Override
 	@Transactional
 	public void update(MovieEntity bean) throws DuplicateRecordException {
-		log.info("MovieServiceImpl  update method start");
+		log.info("MovieServiceImpl update method start");
 		MovieEntity existEntity = dao.findByName(bean.getName());
 		if (existEntity != null && existEntity.getId() != bean.getId()) {
-			throw new DuplicateRecordException("Movie is already Exist");
+			throw new DuplicateRecordException("Movie Already Exists");
 		}
 		dao.update(bean);
 		log.info("MovieServiceImpl update method end");
@@ -52,7 +52,7 @@ public class MovieServiceImpl implements MovieServiceInt {
 	@Override
 	@Transactional
 	public void delete(MovieEntity bean) {
-		log.info("MovieServiceImpl  delete method start");
+		log.info("MovieServiceImpl delete method start");
 		dao.delete(bean);
 		log.info("MovieServiceImpl delete method end");
 	}
@@ -60,7 +60,7 @@ public class MovieServiceImpl implements MovieServiceInt {
 	@Override
 	@Transactional
 	public MovieEntity findByName(String name) {
-		log.info("MovieServiceImpl  findByLogin method start");
+		log.info("MovieServiceImpl findByLogin method start");
 		MovieEntity bean = dao.findByName(name);
 		log.info("MovieServiceImpl findByLogin method end");
 		return bean;
@@ -69,7 +69,7 @@ public class MovieServiceImpl implements MovieServiceInt {
 	@Override
 	@Transactional
 	public MovieEntity findByPk(long id) {
-		log.info("MovieServiceImpl  findByPk method start");
+		log.info("MovieServiceImpl findByPk method start");
 		MovieEntity bean = dao.findByPk(id);
 		log.info("MovieServiceImpl findBypk method end");
 		return bean;
@@ -78,7 +78,7 @@ public class MovieServiceImpl implements MovieServiceInt {
 	@Override
 	@Transactional
 	public List<MovieEntity> search(MovieEntity bean, long pageNo, int pageSize) {
-		log.info("MovieServiceImpl  search method start");
+		log.info("MovieServiceImpl search method start");
 		List<MovieEntity> list = dao.search(bean, pageNo, pageSize);
 		log.info("MovieServiceImpl search method end");
 		return list;
@@ -87,7 +87,7 @@ public class MovieServiceImpl implements MovieServiceInt {
 	@Override
 	@Transactional
 	public List<MovieEntity> search(MovieEntity bean) {
-		log.info("MovieServiceImpl  search method start");
+		log.info("MovieServiceImpl search method start");
 		List<MovieEntity> list = dao.search(bean);
 		log.info("MovieServiceImpl search method end");
 		return list;
@@ -96,8 +96,8 @@ public class MovieServiceImpl implements MovieServiceInt {
 	@Override
 	@Transactional
 	public Blob getImageById(long id) throws SerialException, SQLException {
-		log.info("MovieServiceImpl  getImageById method start");
-		log.info("MovieServiceImpl  getImageById method end");
+		log.info("MovieServiceImpl getImageById method start");
+		log.info("MovieServiceImpl getImageById method end");
 		return dao.getImageById(id);
 	}
 

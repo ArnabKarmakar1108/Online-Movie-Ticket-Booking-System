@@ -25,10 +25,10 @@ public class UserServiceImpl implements UserServiceInt {
 	@Override
 	@Transactional
 	public long add(UserEntity bean) throws DuplicateRecordException {
-		log.info("UserServiceImpl  add method start");
+		log.info("UserServiceImpl add method start");
 		UserEntity existEntity = dao.findByLogin(bean.getLogin());
 		if (existEntity != null) {
-			throw new DuplicateRecordException("Login id already Exist");
+			throw new DuplicateRecordException("Login ID Already Exists");
 		}
 		long pk = dao.add(bean);
 		log.info("UserServiceImpl add method end");
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserServiceInt {
 		log.info("UserServiceImpl  update method start");
 		UserEntity existEntity = dao.findByLogin(bean.getLogin());
 		if (existEntity != null && existEntity.getId() != bean.getId()) {
-			throw new DuplicateRecordException("Login id already Exist");
+			throw new DuplicateRecordException("Login ID Already Exists");
 		}
 		dao.update(bean);
 		log.info("UserServiceImpl update method end");
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserServiceInt {
 	@Override
 	@Transactional
 	public UserEntity findByPK(long pk) {
-		log.info("UserServiceImpl  findByPk method start");
+		log.info("UserServiceImpl findByPk method start");
 		UserEntity bean = dao.findByPk(pk);
 		log.info("UserServiceImpl findBypk method end");
 		return bean;
@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserServiceInt {
 	@Override
 	@Transactional
 	public List<UserEntity> search(UserEntity bean) {
-		log.info("UserServiceImpl  search method start");
+		log.info("UserServiceImpl search method start");
 		List<UserEntity> list = dao.search(bean);
 		log.info("UserServiceImpl search method end");
 		return list;
@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserServiceInt {
 	@Override
 	@Transactional
 	public List<UserEntity> search(UserEntity bean, int pageNo, int pageSize) {
-		log.info("UserServiceImpl  search method start");
+		log.info("UserServiceImpl search method start");
 		List<UserEntity> list = dao.search(bean, pageNo, pageSize);
 		log.info("UserServiceImpl search method end");
 		return list;
@@ -95,12 +95,12 @@ public class UserServiceImpl implements UserServiceInt {
 	@Override
 	@Transactional
 	public boolean changePassword(Long id, String oldPassword, String newPassword) {
-		log.info("UserServiceImpl  changePassword method start");
+		log.info("UserServiceImpl changePassword method start");
 		UserEntity dtoExist = findByPK(id);
 		if (dtoExist != null && dtoExist.getPassword().equals(oldPassword)) {
 			dtoExist.setPassword(newPassword);
 			dao.update(dtoExist);
-			log.info("UserServiceImpl  changePassword method end");
+			log.info("UserServiceImpl changePassword method end");
 			return true;
 		} else {
 			return false;
@@ -110,26 +110,26 @@ public class UserServiceImpl implements UserServiceInt {
 	@Override
 	@Transactional
 	public UserEntity authenticate(UserEntity bean) {
-		log.info("UserServiceImpl  authenticate method start");
+		log.info("UserServiceImpl authenticate method start");
 		UserEntity uBean = dao.authenticate(bean);
-		log.info("UserServiceImpl 	authenticate method end");
+		log.info("UserServiceImpl authenticate method end");
 		return uBean;
 	}
 
 	@Override
 	@Transactional
 	public long registerUser(UserEntity bean) throws DuplicateRecordException {
-		log.info("UserServiceImpl  registerUser method start");
+		log.info("UserServiceImpl registerUser method start");
 		long pk = add(bean);
-		log.info("UserServiceImpl  registeruser method end");
+		log.info("UserServiceImpl registeruser method end");
 		return pk;
 	}
 
 	@Override
 	@Transactional
 	public boolean forgetPassword(String login) {
-		log.info("UserServiceImpl  forgetPassword method start");
-		log.info("UserServiceImpl  forgetPassword method end");
+		log.info("UserServiceImpl forgetPassword method start");
+		log.info("UserServiceImpl forgetPassword method end");
 		return false;
 	}
 	
