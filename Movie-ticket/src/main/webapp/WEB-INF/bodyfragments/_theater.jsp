@@ -6,6 +6,10 @@
 <head>
     <style>
         /* Centering container */
+        body {
+            height: 100vh;
+            background: linear-gradient(to top, #c9c9ff 50%, #9090fa 90%) no-repeat;
+        }
         .center-container {
             display: flex;
             justify-content: center;
@@ -62,6 +66,7 @@
             padding: 10px 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            width: 45%;
         }
 
         .btn-primary:hover {
@@ -121,8 +126,10 @@
                     <font color="red"><sf:errors path="${status.expression}" /></font>
                 </s:bind>
             </div>
-
-            <input type="submit" name="operation" class="btn btn-primary pull-right mr-2" value="Save">or<input type="submit" name="operation" class="btn btn-primary pull-right ml-2" value="Reset">
+            
+            <div class="ml-4">
+                <input type="submit" name="operation" class="btn btn-primary pull-right mr-2" value="Save">or<input type="submit" name="operation" class="btn btn-primary pull-right ml-2" value="Reset">
+            </div>
         </sf:form>
     </div>
 </div>

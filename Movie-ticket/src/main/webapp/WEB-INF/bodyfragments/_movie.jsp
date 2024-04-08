@@ -6,6 +6,10 @@
 <head>
     <style>
         /* Fancy form styling */
+        body {
+            height: 700px;
+            background: linear-gradient(to top, #c9c9ff 50%, #9090fa 90%) no-repeat;
+        }
         .form-area {
             background-color: #f9f9f9;
             padding: 20px;
@@ -51,6 +55,7 @@
             padding: 10px 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            width: 45%;
         }
 
         .btn-primary:hover {
