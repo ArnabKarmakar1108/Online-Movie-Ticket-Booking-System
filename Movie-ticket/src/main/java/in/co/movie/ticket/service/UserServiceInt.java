@@ -21,7 +21,7 @@ public interface UserServiceInt {
 	
 	public List<UserEntity> search(UserEntity bean);
 	
-	public List search(UserEntity bean, int pageNo, int pageSize) ;
+	public List<UserEntity> search(UserEntity bean, int pageNo, int pageSize) ;
 	 
     
     

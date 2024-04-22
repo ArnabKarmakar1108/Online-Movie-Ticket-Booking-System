@@ -40,7 +40,7 @@ import in.co.movie.ticket.util.DataUtility;
 @RequestMapping("/theater")
 public class TheaterCtl extends BaseCtl {
 
-	@Autowired
+	@Autowired /*automatically inject dependencies into a Spring-managed bean */
 	private TheaterServiceInt service;
 	
 	
@@ -93,7 +93,7 @@ public class TheaterCtl extends BaseCtl {
 				bean.setImage(file.getBytes());
 				if(bean.getId()>0) {
 					service.update(bean);
-					model.addAttribute("success", "Theatre update Successfully!!!!");
+					model.addAttribute("success", "Theatre Updated Successfully!!!!");
 				}else {
 				service.add(bean);
 				model.addAttribute("success", "Theatre Added Successfully!!!!");
@@ -140,7 +140,7 @@ public class TheaterCtl extends BaseCtl {
 					service.delete(dto);
 				}
 				Integer[] lengths = { form.getIds().length };
-				model.addAttribute("success", "Record Delete Successfully");
+				model.addAttribute("success", "Record Deleted Successfully");
 			} else {
 				model.addAttribute("error","Select at least one Record");
 			}
@@ -171,43 +171,6 @@ public class TheaterCtl extends BaseCtl {
 		return "theaterList";
 	}
 	
-	
-	/*
-	 * @RequestMapping(value = "/home/search", method = { RequestMethod.GET,
-	 * RequestMethod.POST }) public String searchTheatreHome(@ModelAttribute("form")
-	 * TheatreForm form,
-	 * 
-	 * @RequestParam(required = false) String operation,Long cId,HttpSession
-	 * session, Model model) {
-	 * 
-	 * int pageNo = form.getPageNo(); int pageSize = form.getPageSize();
-	 * 
-	 * if (OP_NEXT.equals(operation)) { pageNo++; } else if
-	 * (OP_PREVIOUS.equals(operation)) { pageNo--; } pageNo = (pageNo < 1) ? 1 :
-	 * pageNo; pageSize = (pageSize < 1) ? 10 : pageSize;
-	 * 
-	 * TheatreEntity bean=(TheatreEntity)form.getBean();
-	 * if(DataUtility.getLong(String.valueOf(cId))>0) {
-	 * bean.setCategoryId(DataUtility.getLong(String.valueOf(cId))); }
-	 * List<TheatreEntity> list =service.search(bean); List<TheatreEntity> totallist
-	 * =service.search(bean); model.addAttribute("list", list);
-	 * 
-	 * 
-	 * 
-	 * if (list.size() == 0 && !OP_DELETE.equalsIgnoreCase(operation)) {
-	 * model.addAttribute("error","Record not found"); }
-	 * 
-	 * int listsize = list.size(); int total = totallist.size(); int pageNoPageSize
-	 * = pageNo * pageSize;
-	 * 
-	 * form.setPageNo(pageNo); form.setPageSize(pageSize);
-	 * model.addAttribute("pageNo", pageNo); model.addAttribute("catList",
-	 * catService.search(null)); model.addAttribute("pageSize", pageSize);
-	 * model.addAttribute("listsize", listsize); model.addAttribute("total", total);
-	 * model.addAttribute("pagenosize", pageNoPageSize); model.addAttribute("form",
-	 * form); return "home-Theatre-list"; }
-	 */
-	
 	@GetMapping("/getImage/{id}")
 	public void getStudentPhoto(HttpServletResponse response, @PathVariable("id") long id) throws Exception {
 		response.setContentType("image/jpeg");
@@ -216,11 +179,5 @@ public class TheaterCtl extends BaseCtl {
 		InputStream inputStream = new ByteArrayInputStream(bytes);
 		IOUtils.copy(inputStream, response.getOutputStream());
 	}
-	
-	/*
-	 * @GetMapping("/getSize/{id}") public int getStudentPhoto(@PathVariable("id")
-	 * long id) throws Exception { TheatreEntity bean=new TheatreEntity();
-	 * bean.setId(id); return service.search(bean).size(); }
-	 */
 	
 }

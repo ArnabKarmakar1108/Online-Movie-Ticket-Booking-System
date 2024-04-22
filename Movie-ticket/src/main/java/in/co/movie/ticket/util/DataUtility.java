@@ -103,7 +103,7 @@ public class DataUtility {
 
 		Timestamp timeStamp = null;
 		try {
-			// timeStamp = new Timestamp((timeFormatter.parse(cdt)).getTime());
+			timeStamp = new Timestamp((formatter.parse(cdt)).getTime());
 		} catch (Exception e) {
 			return null;
 		}

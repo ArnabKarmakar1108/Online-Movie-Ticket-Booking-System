@@ -30,8 +30,8 @@
 							</div>
 							<div class="form-group col-lg-4">
 							 <input type="submit" name="operation"
-								class="btn btn-primary pull-right" value="Search">or<input type="submit" name="operation"
-								class="btn btn-primary pull-right" value="Reset">
+								class="btn btn-primary pull-right mr-2" value="Search">or<input type="submit" name="operation"
+								class="btn btn-primary pull-right ml-2" value="Reset">
 							</div>
 							</div>
 					</div>

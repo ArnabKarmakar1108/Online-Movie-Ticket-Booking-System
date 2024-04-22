@@ -114,6 +114,7 @@ public class UserDAOimpl implements UserDAOInt {
 		log.info("UserDAOImpl  Authenticate method start");
 		Session session = entityManager.unwrap(Session.class);
 		Criteria criteria = session.createCriteria(UserEntity.class);
+		//We use the CriteriaBuilder to create a criteria query (CriteriaQuery<UserEntity>).
 		criteria.add(Restrictions.like("login", bean.getLogin()));
 		criteria.add(Restrictions.like("password", bean.getPassword()));
 		log.info("UserDAOImpl  Authenticate method end");

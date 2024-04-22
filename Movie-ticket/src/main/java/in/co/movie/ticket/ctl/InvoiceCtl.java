@@ -154,7 +154,7 @@ public class InvoiceCtl extends BaseCtl {
 		if (list.size() == 0 && !OP_DELETE.equalsIgnoreCase(operation)) {
 			model.addAttribute("error","Record not found");
 		}
-		model.addAttribute("success","Ticket Booking Succesfully");
+		model.addAttribute("success","Ticket Booked Succesfully");
 		return "success";
 	}
 	

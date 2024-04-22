@@ -77,25 +77,82 @@
             <h3 style="margin-bottom: 15px; text-align: left;">Payment</h3>
             <div class="form-group">
                 <label>Card Number:</label>
-                <input type="text" placeholder="Enter Card Number" class="form-control">
+                <input type="text" id="cardNumber" placeholder="Enter Card Number" class="form-control" pattern="(?:\d[ -]*?){13,16}" title="Please enter a valid credit card number">
             </div>
             <div class="form-group">
                 <label>Card Holder Name:</label>
-                <input type="text" placeholder="Enter Card Holder Name" class="form-control">
+                <input type="text" id="cardHolderName" placeholder="Enter Card Holder Name" class="form-control">
             </div>
             <div class="form-group">
                 <label>Month:</label>
-                <input type="text" placeholder="Enter Month" class="form-control">
+                <input type="text" id="month" placeholder="Enter Month" class="form-control">
             </div>
             <div class="form-group">
                 <label>Year:</label>
-                <input type="text" placeholder="Enter Year" class="form-control">
+                <input type="text" id="year" placeholder="Enter Year" class="form-control">
             </div>
             <div class="form-group">
                 <label>CVV:</label>
-                <input type="text" placeholder="Enter CVV" class="form-control">
-            </div>
-            <input type="submit" name="operation" class="btn btn-primary pull-right" value="Confirm Payment">
+                <input type="text" id="cvv" placeholder="Enter CVV" class="form-control">
+            </div>            
+            <input type="submit" name="operation" class="btn btn-primary pull-right" value="Confirm Payment" onclick="return validateCreditCard()">
         </sf:form>
     </div>
 </div>
+
+<script>
+    function validateCreditCard() {
+        // Validate Card Number
+        var cardNumber = document.getElementById("cardNumber").value.replace(/[ -]/g, ''); // Remove spaces and dashes
+        var sum = 0;
+        var doubleUp = false;
+        for (var i = cardNumber.length - 1; i >= 0; i--) {
+            var curDigit = parseInt(cardNumber.charAt(i));
+            if (doubleUp) {
+                curDigit *= 2;
+                if (curDigit > 9) {
+                    curDigit -= 9;
+                }
+            }
+            sum += curDigit;
+            doubleUp = !doubleUp;
+        }
+        if (sum % 10 != 0 || sum == 0) {
+            alert("Invalid Credit Card Number!");
+            return false;
+        }
+
+        // Validate Card Holder Name
+        var cardHolderName = document.getElementById("cardHolderName").value.trim();
+        if (cardHolderName === "") {
+            alert("Please Enter Valid Name");
+            return false;
+        }
+
+        // Validate Month
+        var month = document.getElementById("month").value.trim();
+        if (month === "" || month < 1 || month > 12) {
+            alert("Please Enter Valid Expiration Month");
+            return false;
+        }
+
+        // Validate Year
+        var year = document.getElementById("year").value.trim();
+        var curYear = new Date().getFullYear();
+        if (year === "" || year < curYear) {
+            alert("Please Enter Valid Expiration Year");
+            return false;
+        }
+
+        // Validate CVV
+        var cvv = document.getElementById("cvv").value.trim();
+        if (cvv === "" || cvv.length != 3 || isNaN(cvv)) {
+            alert("Please Enter Valid CVV");
+            return false;
+        }
+
+        // All validations passed
+        return true;
+    }
+</script>
+

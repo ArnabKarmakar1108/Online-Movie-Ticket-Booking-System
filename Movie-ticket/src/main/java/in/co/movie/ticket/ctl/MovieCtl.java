@@ -122,7 +122,7 @@ public class MovieCtl extends BaseCtl {
 					service.delete(dto);
 				}
 				Integer[] lengths = { form.getIds().length };
-				model.addAttribute("success", "Record Delete Successfully");
+				model.addAttribute("success", "Record Deleted Successfully");
 			} else {
 				model.addAttribute("error","Select at least one Record");
 			}

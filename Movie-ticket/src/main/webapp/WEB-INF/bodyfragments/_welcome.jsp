@@ -47,7 +47,7 @@
 
 
 <div class="container">
-    <%-- Error message styling --%>
+    <!-- <%-- Error message styling --%>
     <c:if test="${not empty error}">
         <div class="alert alert-danger" role="alert">
             ${error}
@@ -59,7 +59,7 @@
         <div class="alert alert-success" role="alert">
             ${success}
         </div>
-    </c:if>
+    </c:if> -->
 
     <%-- Display records --%>
     <div class="row">
