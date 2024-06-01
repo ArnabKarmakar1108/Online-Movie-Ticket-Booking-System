@@ -22,7 +22,10 @@ public class MovieTicketConfigration implements WebMvcConfigurer {
 		viewResolver.setViewClass(TilesView.class);
 		return viewResolver;
 	}
-
+	/*Apache Tiles is a templating framework that helps in managing the layout of web applications by 
+	defining reusable page layouts and components. It allows developers to define page layouts in 
+	separate template files and then assemble these layouts dynamically to construct complete web pages.*/
+	
 	@Bean(name = "tilesConfigure")
 	public TilesConfigurer getTilesConfigure() {
 		TilesConfigurer tilesConfigure = new TilesConfigurer();
